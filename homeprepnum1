@@ -1,0 +1,31 @@
+template<typename T> void read_vec (int n, vector<T>& ans){
+    for(int i = 0; i < n; ++i){
+        T in;
+        cin >> in;
+        ans.push_back(in);
+    }
+
+}
+template<typename T> void out_vec (vector<T> a){
+    for(int i = 0; i < a.size(); ++i){
+        cout << a[i] << " ";
+    }
+}
+bool compare(int a, int goal){}
+
+int binpoisk (int tl, int tr, int goal){
+    //00000111111 finds minimum index of '1'
+    if(tl == tr) return tl;
+    bool a = compare((tl+tr)/2, goal);
+    if(a==0){
+        tl = (tl+tr)/2+1;
+        return binpoisk (tl,tr,goal);
+    }
+    else {tr = (tl+tr)/2;
+    return binpoisk(tl,tr,goal);
+    }
+}
+int fastpow(int a, int n){
+    if(n%2!=0) return a*fastpow(a,n-1);
+    else return fastpow(a,n/2)*fastpow(a,n/2);
+}
